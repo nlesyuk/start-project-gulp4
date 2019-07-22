@@ -1,0 +1,72 @@
+{
+  "name": "easydropdown",
+  "version": "4.0.3",
+  "description": "A lightweight library for building beautiful styleable select elements",
+  "author": "KunkaLabs Limited",
+  "private": false,
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "browser": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patrickkunka/easydropdown/"
+  },
+  "scripts": {
+    "test": "mocha --opts ./config/mocha/mocha.opts",
+    "test:watch": "npm run test -- --watch",
+    "test:cover": "nyc npm run test",
+    "test:size": "bundlesize",
+    "lint": "npm run lint:ts && npm run lint:css",
+    "lint:ts": "tslint --project tsconfig.json -c './config/tslint/tslint.json' './src/**/*.ts' './src/**/*.test.ts'",
+    "lint:css": "stylelint --config './config/stylelint/.stylelintrc.json' './demos/**/*.css'",
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "bundle": "webpack --config ./config/webpack/config.ts",
+    "bundle:watch": "npm run bundle -- --watch",
+    "bundle:build": "npm run bundle -- --env=production && npm run copy:bundle",
+    "copy:bundle": "cp ./bundle/easydropdown.js ./demos/easydropdown.js && cp ./bundle/easydropdown.js.map ./demos/easydropdown.js.map",
+    "prepublishOnly": "npm run test && npm run lint && npm run bundle:build && npm run build",
+    "coveralls": "npm run test:cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+  },
+  "nyc": {
+    "extends": "./config/nyc/.nycrc.json"
+  },
+  "bundlesize": [
+   {
+      "path": "./bundle/easydropdown.js",
+      "maxSize": "9.17 kB"
+    }
+  ],
+  "dependencies": {
+    "custom-event-polyfill": "^0.3.0",
+    "helpful-merge": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.5",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.53",
+    "@types/sinon": "^4.3.1",
+    "bundlesize": "^0.17.0",
+    "chai": "^3.5.0",
+    "chai-shallow-deep-equal": "^1.4.0",
+    "coveralls": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "jsdom": "^11.8.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^3.0.2",
+    "nyc": "^11.3.0",
+    "sinon": "^4.5.0",
+    "source-map-support": "^0.5.0",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "ts-loader": "^4.2.0",
+    "ts-node": "^3.3.0",
+    "tsconfig-paths": "^3.3.1",
+    "tslint": "^5.8.0",
+    "tslint-eslint-rules": "^5.1.0",
+    "typescript": "^2.6.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2"
+  }
+}

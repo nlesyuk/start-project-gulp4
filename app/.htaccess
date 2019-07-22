@@ -1,0 +1,19 @@
+<IfModule mod_expires.c>
+  <FilesMatch \.(gif|png|jpg|jpeg|ogg|mp4|mkv|flv|swf|wmv|asf|asx|wma|wax|wmx|wm)$>
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 7 day"
+  ExpiresByType image/gif "access plus 7 day"
+  ExpiresByType image/png "access plus 7 day"
+  <FilesMatch \.(css|js)$>
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|pdf|woff|css|js)$">
+    Header set Cache-Control "max-age=604800"
+</FilesMatch>
+
+AddCharset UTF-8 .html

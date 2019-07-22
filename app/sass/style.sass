@@ -1,0 +1,188 @@
+@import _reset
+@import _fonts
+@import _colors-fonts.sass
+@import _mixins
+@import _general
+
+
+
+
+.title
+	font: 3em/1em  $font
+	color: white
+	&.black
+		color: $accent
+
+.btn
+	display: block
+	font: 1em/1em $font
+	text-transform: uppercase
+	text-align: center
+	color: white
+	padding: 12px
+	background: red
+	border: none
+	position: relative
+	z-index: 99
+	&:hover
+		background: $accent
+
+		
+
+
+#top-nav
+	width: 100%
+	position: fixed
+	background: white
+	z-index: 9998
+	box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.11)
+	justify-content: space-between
+	height: auto
+	min-height: 50px
+	transition: all .25s
+	.top_btn
+		background: $accent
+		min-height: 50px
+		border: none
+		height: 100%
+		padding: 0 20px
+		font: 1.125em/1em  $font
+		text-align: center
+		color: white
+	#menu_btn
+		display: block
+		width: 60px
+		height: 100%
+		padding: 0
+		background: $accent
+		border: none
+		margin-left: auto
+		padding: 0 10px
+		svg
+			display: block
+			margin: 0 auto
+			width: 30px
+			height: 30px
+			fill: white
+	.mobile_logo
+		display: block
+		img 
+			display: block
+			max-width: 100%
+			width: 100%
+			margin: 0 auto
+			padding: 5px 0
+
+
+#mobile-menu
+	position: fixed
+	background-color: white
+	.menu_list
+		background: white
+		padding-top: 20px
+		padding-left: 25px
+		li
+			margin-bottom: 10px
+			a
+				display: block
+				background: white
+				box-sizing: border-box
+				padding: 10px 0
+				font: 1.125em/1em  $font
+				text-transform: uppercase
+				text-decoration: none
+				color: #000
+			button
+				background: $accent
+				min-height: 50px
+				border: none
+				width: calc(100% - 25px)
+				height: 100%
+				padding: 0 20px
+				font: 1.125em/1em  $font
+				text-align: center
+				color: white
+
+
+
+ 
+
+#owl_slider
+	position: relative
+	z-index: 2
+	.owl-carousel 
+		.owl-stage-outer 
+			width: 100%
+		.owl-nav
+			display: block
+			width: 140px
+			height: 50px
+			position: absolute
+			top: 90%
+			right: 37%
+			.owl-prev
+				position: relative
+				margin-right: 64px
+				display: inline-block
+				width: 38px
+				height: 38px
+				padding: 5px 12px
+				border: 1px solid black
+				&:hover,
+				&:focus
+					outline: none
+					border: 1px solid $accent
+			.owl-next
+				display: inline-block
+				width: 38px
+				height: 38px
+				padding: 5px 12px
+				border: 1px solid black
+				&:hover,
+				&:focus
+					outline: none
+					border: 1px solid $accent
+		.owl-item
+			&.active
+
+
+.modal
+	.modal-content
+		border-radius: 0px
+		padding: 0%
+		margin-top: 25%
+		position: relative
+		z-index: 9999
+	.modal-body
+		.close
+			display: block
+			width: 35px
+			height: 35px
+			border-radius: 50%
+			background: transparent
+			position: absolute
+			right: -3%
+			top: -40px
+			font: 2.5em/0em  $font
+			color: black
+			border: none
+			opacity: .6
+			&:hover
+				opacitY: 1
+
+
+
+@media (max-width: 1200.98px)
+	color: red
+
+// md
+@media (max-width: 992.98px)
+	color: red
+
+// sm
+@media (max-width: 768.98px)
+	color: red
+
+// xs
+@media (max-width: 576.98px)
+	color: red

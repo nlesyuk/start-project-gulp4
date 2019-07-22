@@ -1,0 +1,129 @@
+.navbar
+  width 100%
+  height 50px
+  background-color drawer_menu_bgc
+  display flex
+  display -webkit-flex
+  flex-direction row
+  -webkit-flex-direction row
+  flex-wrap nowrap
+  -webkit-flex-wrap nowrap
+  justify-content space-between
+  -webkit-justify-content space-between
+  color drawer_menu_color
+  margin 0
+  padding 0
+  .logo
+    display block
+    margin 0
+    padding 0
+    line-height 100%
+    font-size 18px
+    line-height 50px
+    color drawer_menu_color
+    a
+      color drawer_menu_color
+      text-decoration none
+      &:hover
+        color darken(drawer_menu_color,12)
+      img,svg
+        height 20px
+        line-height 100%
+        width auto
+        vertical-align bottom
+        padding 15px 0
+      svg
+        path
+          vertical-align bottom
+          fill drawer_menu_color
+  .menu-left,.menu-right
+    display block
+    height 17px
+    width 50px
+    padding 18px 20px
+    svg
+      height 17px
+      width auto
+      line-height 100%
+      cursor pointer
+  .menu-left
+    order 0
+    text-align left
+  .logo
+    order 1
+    text-align center
+  .menu-right
+    order 2
+    text-align right
+  .hamburger
+    height 20px
+    rect
+      fill drawer_menu_color
+    &:hover
+      rect
+        fill darken(drawer_menu_color,12)
+
+.drawermenu
+  background-color drawer_menu_bgc
+  position fixed
+  left -250px
+  top 0
+  width 250px
+  max-width 70%
+  height 100%
+  z-index 100
+  &.drawermenu-right
+    left auto
+    right -250px
+  & > ul,& > dl
+    list-style none
+    padding 0
+    margin 0
+    overflow-x hidden
+    overflow-y auto
+    height 100%
+    & > li
+      width 100%
+      & > a
+        font-size 14px
+        display block
+        width 100%
+        padding 10px
+        text-decoration none
+        -moz-box-sizing border-box
+        -webkit-box-sizing border-box
+        -o-box-sizing border-box
+        -ms-box-sizing border-box
+        box-sizing border-box
+        color drawer_menu_color
+        background-color drawer_menu_bgc
+        border-bottom solid 1px alpha(#FFF,0.1)
+        .icon-down
+          fill drawer_menu_color
+          width 8px
+          margin-left 10px
+      & > ul
+        display none
+        list-style none
+        padding 0
+        margin 0
+        & > li
+          & > a
+            display block
+            font-size 13px
+            color drawer_menu_color
+            padding 5px 15px
+            text-decoration none
+
+.drawermenu-overlay
+  display none
+  position fixed
+  cursor pointer
+  z-index 80
+  left 0
+  right 0
+  top 0
+  bottom 0
+  width 100%
+  height 100%
+  background-color alpha(#000,0.8)

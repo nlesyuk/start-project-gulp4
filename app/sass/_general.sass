@@ -1,0 +1,58 @@
+=placeholder
+	&::-webkit-input-placeholder
+		@content
+	&:-moz-placeholder
+		@content
+	&::-moz-placeholder
+		@content
+	&:-ms-input-placeholder
+		@content
+a,
+button
+	transition: all .3s
+	&:hover
+		color: white
+		transition: all .3s
+	&:active
+        color: #f03
+	&:focus
+		color: #f20
+		outline: none
+	&:visited
+		color: #0f1
+
+input
+	&:focus
+		outline: none
+		+placeholder
+			color: transparent
+			
+
+body 
+	min-width: 320px
+	position: relative
+	font: 16px/1 $font
+	overflow-x: hidden
+	background: #fff
+
+.video-responsive 
+	height: 0
+	overflow: hidden
+	padding-bottom: 56.25%
+	position: relative
+	margin: 0px auto
+	width: 100%
+	iframe 
+		height: 100%
+		left: 0
+		position: absolute
+		top: 0
+		width: 100%
+
+.table-responsive
+	max-width: 100%
+	overflow: auto
+
+.img-responsive
+	display: block
+	max-width: 100%
