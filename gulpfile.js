@@ -40,7 +40,7 @@ gulp.task('watch', function(){
     gulp.watch('app/js/**/*.js', gulp.parallel('scripts') );
 });
 
-gulp.task('default', gulp.series('sass', 'browser-sync', 'watch') );
+gulp.task('default', gulp.parallel('sass', 'browser-sync', 'watch') );
 
 
 // *.sass - выбирает все файлы, имеющие определенное расширение (в данном случае, .sass) в корневой папке проекта.
