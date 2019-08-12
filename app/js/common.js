@@ -49,20 +49,16 @@ $(".phone-mask").mask("099-999-99-99");
 		var cookie        = getCookie(cookieName);
 
 		var timerConfig = {
-			el: 'countdown',
-			el2: 'countdown2',
-			endTimer: cookie,
-			message: '<span class="number-wrapper end"><div class="line"></div><span class="number end">00:00:00</span></span>'
+			el: '.countdown',
+			endTimer: cookie
 		};
 
 		if( cookie > Date.now() ){
-			var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer, timerConfig.message );
-			var timer2 = new CountdownTimer( timerConfig.el2, timerConfig.endTimer, timerConfig.message );
+			var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer);
 		} else {
 			setCookie(cookieName, endTimer, 30);
 			timerConfig.endTimer = getCookie(cookieName);
-			var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer, timerConfig.message );
-			var timer2 = new CountdownTimer( timerConfig.el2, timerConfig.endTimer, timerConfig.message );
+			var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer);
 		}	
 		timer.countDown();
 		// timer2.countDown();
@@ -98,7 +94,23 @@ $(".phone-mask").mask("099-999-99-99");
 //end ready
 });
 
-// function declarations:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FUNCTION DECLARATIONS:
 	// cookie
 	function setCookie(cname, cvalue, exdays) {
 		var d = new Date();
@@ -134,18 +146,27 @@ $(".phone-mask").mask("099-999-99-99");
 		}
 	}
 
-	// class countDownTimer
+
+	/* How use class countDownTimer
+		new CountdownTimer({
+			".countdown",
+			Date.now() + 30000,
+			"time is end"
+		});
+	 */
 	function CountdownTimer(elem, time, message){
 		this.initialize.apply(this, arguments);
 	}
+
 	CountdownTimer.prototype = {
 
 		initialize: function(elem, time, message) {
-			this.elem = document.getElementById(elem);
+			this.elems = document.querySelectorAll(elem);
 			this.endTime 	= time;
+			message = message || "00:00:00";
 			this.message 	= '<span class="number-wrapper end">\
 				<div class="line"></div>\
-				<span class="number end">00:00:00</span>\
+				<span class="number end">'+ message +'</span>\
 			</span>';
 		},
 
@@ -158,8 +179,6 @@ $(".phone-mask").mask("099-999-99-99");
 			var sec   = Math.floor(( resultDate % (24*60*60*1000)) / 1000) % 60 % 60;
 			var timer = '';
 			var self  = this;
-
-			this.elem.innerHTML = this.message;
 
 			if( resultDate > 0 ){
 				// if you need 'day' just copy and paste html below in variable timer
@@ -179,12 +198,20 @@ $(".phone-mask").mask("099-999-99-99");
 								<div class="caption">сек</div>\
 							</div>';
 
-				this.elem.innerHTML = timer;
+				for (var i = 0; i < this.elems.length; i++) {
+					this.elems[i].innerHTML = timer;
+				}
 
 				var id = setTimeout( function(){
 					self.countDown();
 				}, 10);
 				
+			} else {
+
+				for (var i = 0; i < this.elems.length; i++) {
+					this.elems[i].innerHTML = this.message;
+				}
+
 			}
 			
 		},
