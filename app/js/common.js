@@ -40,9 +40,8 @@ $(".phone-mask").mask("099-999-99-99");
 		});
 	});
 
-	// countdown
+// countdown
 		var endTimer      = Date.now() + (60 * 60 * 3 * 1000) + (60 * 42 * 1000); // 3:42
-		var endTimer      = Date.now() + (5 * 1000); // 3:42
 		var cookieName    = "endTimer";
 		var checkCookie   = getCookie(cookieName);
 		if(!checkCookie) setCookie(cookieName, endTimer, 30);
@@ -61,26 +60,27 @@ $(".phone-mask").mask("099-999-99-99");
 			var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer);
 		}	
 		timer.countDown();
-		// timer2.countDown();
-		console.dir(timer);
-		
-		
 		
 // sliders
 		var owl = $('#owl_slider');
 		owl.owlCarousel({
 			loop: true,
-			margin: 0,
 			nav: true,
-			responsive:{
+			autoplay: true,
+			autoplayHoverPause: true,
+			autoplayTimeout: 3000,
+			margin: 5,
+			dots: false,
+			responsiveClass: true,
+			responsive: {
 				0:{
-					items:1
+					items: 1
 				},
 				600:{
-					items:1
+					items: 2
 				},
 				1000:{
-					items:1
+					items: 3
 				}
 			}
 		});

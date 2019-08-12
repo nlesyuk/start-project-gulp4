@@ -116,35 +116,29 @@
 			width: 100%
 		.owl-nav
 			display: block
-			width: 140px
-			height: 50px
+			width: 100%
+			background: green
 			position: absolute
-			top: 90%
-			right: 37%
-			.owl-prev
-				position: relative
-				margin-right: 64px
-				display: inline-block
-				width: 38px
-				height: 38px
-				padding: 5px 12px
-				border: 1px solid black
-				&:hover,
-				&:focus
-					outline: none
-					border: 1px solid $accent
+			top: calc(50% - 19px)
+			display: flex
+			justify-content: space-between
+			pointer-events: none 
+			.owl-prev,
 			.owl-next
-				display: inline-block
+				position: relative
 				width: 38px
 				height: 38px
 				padding: 5px 12px
 				border: 1px solid black
+				pointer-events: auto
 				&:hover,
 				&:focus
 					outline: none
 					border: 1px solid $accent
 		.owl-item
-			background: blue !important 
+			color: red
+			padding: 20px
+			background: blue
 
 
 .countdown
@@ -205,7 +199,7 @@
 		width: auto
 		max-width: 100%
 		padding: 25px 22px
-		background: $red
+		background: red
 		.thy__text2
 			font: 500 .87rem/1.25 $font
 			color: white
