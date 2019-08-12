@@ -4,9 +4,6 @@
 @import _mixins
 @import _general
 
-
-
-
 .title
 	font: 3em/1em  $font
 	color: white
@@ -27,7 +24,6 @@
 	&:hover
 		background: $accent
 
-		
 
 
 #top-nav
@@ -73,7 +69,6 @@
 			margin: 0 auto
 			padding: 5px 0
 
-
 #mobile-menu
 	position: fixed
 	background-color: white
@@ -103,14 +98,20 @@
 				text-align: center
 				color: white
 
+// sections start
+
+
+
+
 
 
  
+// sections end
 
 #owl_slider
 	position: relative
 	z-index: 2
-	.owl-carousel 
+	&.owl-carousel
 		.owl-stage-outer 
 			width: 100%
 		.owl-nav
@@ -143,7 +144,75 @@
 					outline: none
 					border: 1px solid $accent
 		.owl-item
-			&.active
+			background: blue !important 
+
+
+.countdown
+	display: flex
+	justify-content: center
+	.number-wrapper
+		display: block
+		width: 30%
+		position: relative
+		&.last:after
+			display: none
+		&.end
+			width: 100%
+			&:after
+				display: none
+		&:after
+			content: ":"
+			position: absolute
+			top: -3px
+			right: -10px
+			font: 800 3rem/1 $font
+			color: black
+		.number
+			display: block
+			font: 800 3rem/1 $font
+			text-align: center
+			color: black
+		.caption
+			display: none
+
+
+#thy
+	width: 100%
+	height: auto
+	overflow: hidden
+	background: #212121
+	min-height: 100vh
+	padding-top: 90px
+	position: relative
+	z-index: 2
+	&:after
+		content: url(../img/thy_icon.svg)
+		position: absolute
+		top: 50px
+		right: calc( 50% - 70px)
+		z-index: -1
+	.title
+		font: 800 2rem/1 $font
+		margin-bottom: 20px
+		color: white
+	.thy__text1
+		font: 300 1.8rem/1.25 $font
+		color: white
+		margin-bottom: 30px
+	.thy__cont
+		display: inline-block
+		width: 100%
+		width: auto
+		max-width: 100%
+		padding: 25px 22px
+		background: $red
+		.thy__text2
+			font: 500 .87rem/1.25 $font
+			color: white
+			margin-bottom: 10px
+		.thy__text3
+			font: italic 500 .87rem/1.25 $font
+			color: rgba(255,255,255,.5)
 
 
 .modal
@@ -169,7 +238,6 @@
 			opacity: .6
 			&:hover
 				opacitY: 1
-
 
 
 @media (max-width: 1200.98px)

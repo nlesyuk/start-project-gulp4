@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
 // mobile menu
-	let mobileMenu = document.querySelector("#mobile-menu");
-
+/* 	let mobileMenu = document.querySelector("#mobile-menu");
 	if( mobileMenu != null ){
 		var TouchMenu = TouchMenuLA({
 			target: mobileMenu,
@@ -23,8 +22,9 @@ $(document).ready(function() {
 		$('.items-menu').on('click', function(){
 			TouchMenu.toggle();	
 		});
-	}
+	} */
 
+$(".phone-mask").mask("099-999-99-99");
 
 //scroll add .scroll to buttons for slowly move to anchor
 	$('.scroll').bind('click.smoothscroll',function (e) {
@@ -40,14 +40,13 @@ $(document).ready(function() {
 		});
 	});
 
-
-
 	// countdown
-		var endTimer 	 = Date.now() + (60 * 60 * 3 * 1000) + (60 * 42 * 1000); // 3:42
-		var cookieName	 = "endTimer";
-		var checkCookie  = getCookie(cookieName);
-		if(!checkCookie)   setCookie(cookieName, endTimer, 30);
-		var cookie		 = getCookie(cookieName);
+		var endTimer      = Date.now() + (60 * 60 * 3 * 1000) + (60 * 42 * 1000); // 3:42
+		var endTimer      = Date.now() + (5 * 1000); // 3:42
+		var cookieName    = "endTimer";
+		var checkCookie   = getCookie(cookieName);
+		if(!checkCookie) setCookie(cookieName, endTimer, 30);
+		var cookie        = getCookie(cookieName);
 
 		var timerConfig = {
 			el: 'countdown',
@@ -67,33 +66,34 @@ $(document).ready(function() {
 		}	
 		timer.countDown();
 		// timer2.countDown();
-
-
-
-// slider
-	/*  $("#one").owlCarousel({
+		console.dir(timer);
+		
+		
+		
+// sliders
+		var owl = $('#owl_slider');
+		owl.owlCarousel({
 			loop: true,
 			margin: 0,
 			nav: true,
-			navText:["<img src=\"img/left-arrow2.png\" >","Следующий день <img src=\"img/right-arrow.png\" >"],
 			responsive:{
-			0:{
-				items:1
-			},
-			600:{
-				items:1
-			},
-			1000:{
-				items:1
-			}
+				0:{
+					items:1
+				},
+				600:{
+					items:1
+				},
+				1000:{
+					items:1
+				}
 			}
 		});
-		var owl = $('#owl_slider');
 		$('.customPrevBtn').click(function() {
 			owl.trigger('prev.owl.carousel', [250]);
 		});
-	*/
-
+		$('.customNextBtn').click(function() {
+			owl.trigger('next.owl.carousel', [250]);
+		});
 
 //end ready
 });
@@ -135,26 +135,34 @@ $(document).ready(function() {
 	}
 
 	// class countDownTimer
-	function CountdownTimer(elm, tl, mes){
+	function CountdownTimer(elem, time, message){
 		this.initialize.apply(this, arguments);
 	}
 	CountdownTimer.prototype = {
-		initialize: function(elm, tl, mes) {
-			this.elem 	= document.getElementById(elm);
-			this.tl 	= tl;
-			this.mes 	= mes;
+
+		initialize: function(elem, time, message) {
+			this.elem = document.getElementById(elem);
+			this.endTime 	= time;
+			this.message 	= '<span class="number-wrapper end">\
+				<div class="line"></div>\
+				<span class="number end">00:00:00</span>\
+			</span>';
 		},
+
 		countDown: function(){
-			var timer = '';
 			var today = new Date();
-			var day   = Math.floor((this.tl-today)/(24*60*60*1000));
-			var hour  = Math.floor(((this.tl-today)%(24*60*60*1000))/(60*60*1000));
-			var min   = Math.floor(((this.tl-today)%(24*60*60*1000))/(60*1000))%60;
-			var sec   = Math.floor(((this.tl-today)%(24*60*60*1000))/1000)%60%60;
-			var me    = this;
-	
-			if( ( this.tl - today ) > 0 ){
-	
+			var resultDate = this.endTime - today;
+			var day   = Math.floor( resultDate / (24*60*60*1000));
+			var hour  = Math.floor(( resultDate % (24*60*60*1000)) / (60*60*1000));
+			var min   = Math.floor(( resultDate % (24*60*60*1000)) / (60*1000)) % 60;
+			var sec   = Math.floor(( resultDate % (24*60*60*1000)) / 1000) % 60 % 60;
+			var timer = '';
+			var self  = this;
+
+			this.elem.innerHTML = this.message;
+
+			if( resultDate > 0 ){
+				// if you need 'day' just copy and paste html below in variable timer
 				timer = '<div class="number-wrapper">\
 								<div class="line">	</div>\
 								<span class="number">'+this.addZero(hour)+'</span>\
@@ -170,20 +178,17 @@ $(document).ready(function() {
 								<span class="number">'+this.addZero(sec)+'</span>\
 								<div class="caption">сек</div>\
 							</div>';
-	
-				console.log("ok");
+
 				this.elem.innerHTML = timer;
-				
-				var tid = setTimeout( function(){
-					me.countDown();
+
+				var id = setTimeout( function(){
+					self.countDown();
 				}, 10);
 				
-			} else {
-				this.elem.innerHTML = this.mes;
-				return;
 			}
+			
 		},
-		addZero: function(num){ 
-			return ('0'+num).slice(-2); 
+		addZero: function(num){
+			return ('0'+num).slice(-2);
 		}
 	}
