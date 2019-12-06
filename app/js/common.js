@@ -41,63 +41,58 @@ $(".phone-mask").mask("099-999-99-99");
 	});
 
 // countdown
-		var endTimer      = Date.now() + (60 * 60 * 3 * 1000) + (60 * 42 * 1000); // 3:42
-		var cookieName    = "endTimer";
-		var checkCookie   = getCookie(cookieName);
-		if(!checkCookie) setCookie(cookieName, endTimer, 30);
-		var cookie        = getCookie(cookieName);
+	var endTimer      = Date.now() + (60 * 60 * 3 * 1000) + (60 * 42 * 1000); // 3:42
+	var cookieName    = "endTimer";
+	var checkCookie   = getCookie(cookieName);
+	if(!checkCookie) setCookie(cookieName, endTimer, 30);
+	var cookie        = getCookie(cookieName);
 
-		var timerConfig = {
-			el: '.countdown',
-			endTimer: cookie
-		};
+	var timerConfig = {
+		el: '.countdown',
+		endTimer: cookie
+	};
 
-		if( cookie > Date.now() ){
-			var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer);
-		} else {
-			setCookie(cookieName, endTimer, 30);
-			timerConfig.endTimer = getCookie(cookieName);
-			var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer);
-		}	
-		timer.countDown();
-		
+	if( cookie > Date.now() ){
+		var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer);
+	} else {
+		setCookie(cookieName, endTimer, 30);
+		timerConfig.endTimer = getCookie(cookieName);
+		var timer = new CountdownTimer( timerConfig.el, timerConfig.endTimer);
+	}	
+	timer.countDown();
+	
 // sliders
-		var owl = $('#owl_slider');
-		owl.owlCarousel({
-			loop: true,
-			nav: true,
-			autoplay: true,
-			autoplayHoverPause: true,
-			autoplayTimeout: 3000,
-			margin: 5,
-			dots: false,
-			responsiveClass: true,
-			responsive: {
-				0:{
-					items: 1
-				},
-				600:{
-					items: 2
-				},
-				1000:{
-					items: 3
-				}
+	var owl = $('#owl_slider');
+	owl.owlCarousel({
+		loop: true,
+		nav: true,
+		autoplay: true,
+		autoplayHoverPause: true,
+		autoplayTimeout: 3000,
+		margin: 5,
+		dots: false,
+		responsiveClass: true,
+		responsive: {
+			0:{
+				items: 1
+			},
+			600:{
+				items: 2
+			},
+			1000:{
+				items: 3
 			}
-		});
-		$('.customPrevBtn').click(function() {
-			owl.trigger('prev.owl.carousel', [250]);
-		});
-		$('.customNextBtn').click(function() {
-			owl.trigger('next.owl.carousel', [250]);
-		});
+		}
+	});
+	$('.customPrevBtn').click(function() {
+		owl.trigger('prev.owl.carousel', [250]);
+	});
+	$('.customNextBtn').click(function() {
+		owl.trigger('next.owl.carousel', [250]);
+	});
 
 //end ready
 });
-
-
-
-
-
 
 
 

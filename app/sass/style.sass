@@ -1,23 +1,24 @@
 @import _reset
 @import _fonts
-@import _colors-fonts.sass
+@import _colors-fonts
 @import _mixins
 @import _general
 
+// general
 .title
-	font: 3em/1em  $font
+	font: 3rem/1  $font
 	color: white
 	&.black
-		color: $accent
+		color: $black
 
 .btn
 	display: block
-	font: 1em/1em $font
+	font: 1rem/1 $font
 	text-transform: uppercase
 	text-align: center
 	color: white
 	padding: 12px
-	background: red
+	background: $btn
 	border: none
 	position: relative
 	z-index: 99
@@ -25,7 +26,7 @@
 		background: $accent
 
 
-
+// mobile menu
 #top-nav
 	width: 100%
 	position: fixed
@@ -42,7 +43,7 @@
 		border: none
 		height: 100%
 		padding: 0 20px
-		font: 1.125em/1em  $font
+		font: 1.125rem/1  $font
 		text-align: center
 		color: white
 	#menu_btn
@@ -83,7 +84,7 @@
 				background: white
 				box-sizing: border-box
 				padding: 10px 0
-				font: 1.125em/1em  $font
+				font: 1.125rem/1  $font
 				text-transform: uppercase
 				text-decoration: none
 				color: #000
@@ -94,7 +95,7 @@
 				width: calc(100% - 25px)
 				height: 100%
 				padding: 0 20px
-				font: 1.125em/1em  $font
+				font: 1.125rem/1  $font
 				text-align: center
 				color: white
 
@@ -179,12 +180,6 @@
 	padding-top: 90px
 	position: relative
 	z-index: 2
-	&:after
-		content: url(../img/thy_icon.svg)
-		position: absolute
-		top: 50px
-		right: calc( 50% - 70px)
-		z-index: -1
 	.title
 		font: 800 2rem/1 $font
 		margin-bottom: 20px
@@ -226,7 +221,7 @@
 			position: absolute
 			right: -3%
 			top: -40px
-			font: 2.5em/0em  $font
+			font: 2.5rem/0  $font
 			color: black
 			border: none
 			opacity: .6
