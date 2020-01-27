@@ -27,13 +27,13 @@ define("MAIL_MANAGER_3", '');									// Email 3
 /* RETAIL CRM */
 define("RETAIL_CRM_USE", true);	// Использовать отправку заказа в RETAIL CRM
 define("RETAIL_CRM_URL", 'https://startstudio.retailcrm.ru/');
-define("RETAIL_CRM_API_KEY", 'cgKkRbXe3X1dpzp17k5pYD8pxnFESfwe');
+define("RETAIL_CRM_API_KEY", 'cgKkRbXe3X1dpzp17k5pYD8pxnFESfweNzID');
 define("RETAIL_CRM_SHIPMENT_STORE", '01');
 
 /* LP CRM */
 define("LP_CRM_USE", false);	// Использовать отправку заказа в LP CRM
 define("LP_CRM_URL", 'http://marklinelex.lp-crm.biz/api/addNewOrder.html');
-define("LP_CRM_API_KEY", 'adf21a54ed7d966df31400b2d51b67c3');
+define("LP_CRM_API_KEY", 'adf21a54ed7d966df31400b2d51b67c3NzID');
 define("LP_CRM_SHIPMENT_STORE", '1');
 
 /* SUBID */

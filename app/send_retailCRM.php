@@ -11,9 +11,9 @@ if(!$_POST){
 	die;
 }
 
-require 'vendor/autoload.php';
-include 'lib/config.php';
-require 'lib/submit.php';
+require 'crm/vendor/autoload.php';
+include 'crm/lib/config.php';
+require 'crm/lib/submit.php';
 
 $Submit = new Submit();
 
