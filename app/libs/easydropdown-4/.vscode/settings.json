@@ -1,7 +1,0 @@
-{
-    "tslint.configFile": "./config/tslint/tslint.json",
-    "css.validate": false,
-    "stylelint.config": {
-        "extends": "./config/stylelint/.stylelintrc.json"
-    }
-}
