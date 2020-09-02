@@ -1,4 +1,6 @@
+# editorconfig work via extension in VC code
 root = true
+
 
 [*]
 charset = utf-8
